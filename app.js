@@ -31,8 +31,11 @@ MongoClient.connect(uri, function (err, client) {
    // console.log(allBooksdata);
     const books_collection = client.db("books-db").collection("books");
     books_collection.insertMany(allBooksdata, function (err, res) {
-        if (err) throw err;
+        if (err){
+           console.log(error);
+        }else{
         console.log("1 document inserted" + res.insertedCount);
+        }
         client.close();
     });
 
